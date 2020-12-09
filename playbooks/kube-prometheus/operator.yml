@@ -41,24 +41,11 @@
       with_fileglob:
       - "../../templates/kube-prometheus/operator/*.j2"
 
-    - include_tasks: ../includes/find_ucp.yml
-      vars:
-        ping_servers: "{{ groups.ucp }}"
-    - debug: var=ucp_instance
-      when: _debug is defined
-
-
-    # Assume playbooks/install_client_bundle.yml has been run before this
-    # Assume that ucp_instance hasn't changed in the meantime
-    # - include_tasks: includes/config_client.yml
-
     - name: Apply yml files to  configure and install prometheus
       shell: |
-        . env.sh
         kubectl create namespace monitoring
         kubectl apply -f /tmp/kube-prometheus/operator/
       args:
-        chdir: ~/certs.{{ ucp_instance }}.{{ ucp_username }}
         executable: /usr/bin/bash
       register: ps
 

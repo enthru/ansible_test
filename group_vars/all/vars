@@ -8,3 +8,5 @@ prom_persistent_vol_size: '10GB'
 
 #kubectl_version: "1.11.5"
 #kubectl_checksum: "sha512:7028d357f65603398c35b7578793a153248e17c2ad631541a587f4ae13ef93f058db130390eea4820c2fd7707509ed0eb581cb129790b12680e869829a6fc241"
+env:
+   dummy: 'placeholder'
