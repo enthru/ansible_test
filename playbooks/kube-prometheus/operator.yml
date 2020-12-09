@@ -63,8 +63,3 @@
       register: ps
 
     - debug: var=ps.stdout_lines
-
-
-
-
-
